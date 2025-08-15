@@ -1,44 +1,66 @@
 // js/dangnhap.js
+(function () {
+  console.log("[dangnhap.js] Loaded"); // kiểm tra đã tải
 
-function attachLoginHandler() {
-  const btn = document.getElementById("btnLogin");
-  if (!btn) {
-    console.error("Không tìm thấy #btnLogin — kiểm tra lại id trong HTML.");
-    return;
+  function showError(msg) {
+    const errorDiv = document.getElementById("login_error");
+    if (errorDiv) errorDiv.textContent = msg || "";
   }
 
-  btn.addEventListener("click", (e) => {
-    e.preventDefault(); // tránh reload/trôi trang
+  function onLoginClick(e) {
+    e.preventDefault();
 
-    const email = document.getElementById("login_email")?.value.trim() || "";
-    const password = document.getElementById("login_password")?.value.trim() || "";
-    const errorDiv = document.getElementById("login_error");
+    const emailEl = document.getElementById("login_email");
+    const passEl  = document.getElementById("login_password");
 
-    // Xóa lỗi cũ
-    if (errorDiv) errorDiv.textContent = "";
+    const email = (emailEl?.value || "").trim();
+    const password = (passEl?.value || "").trim();
 
-    // Kiểm tra rỗng
+    showError("");
+
     if (!email || !password) {
-      if (errorDiv) errorDiv.textContent = "Vui lòng nhập đầy đủ email và mật khẩu!";
+      showError("Vui lòng nhập đầy đủ email và mật khẩu!");
       return;
     }
 
-    // Kiểm tra định dạng email
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(email)) {
-      if (errorDiv) errorDiv.textContent = "Email không hợp lệ!";
+      showError("Email không hợp lệ!");
       return;
     }
 
-    // Giả lập đăng nhập OK
-    alert("Đăng nhập thành công!");
-    window.location.href = "vdv_dashboard.html";
-  });
-}
+    // Giả lập đăng nhập OK (vì GitHub Pages không có backend)
+    try {
+      // Lưu session đơn giản để các trang khác nhận biết
+      localStorage.setItem(
+        "authUser",
+        JSON.stringify({ email, role: "athlete", loggedInAt: Date.now() })
+      );
+    } catch (_) {}
 
-// Đảm bảo handler luôn được gắn (dù DOM đã sẵn hay chưa)
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", attachLoginHandler);
-} else {
-  attachLoginHandler();
-}
+    alert("Đăng nhập thành công!");
+    // Điều hướng tới dashboard VĐV (đổi link nếu bạn muốn sang trang khác)
+    window.location.href = "vdv_dashboard.html";
+  }
+
+  function attach() {
+    const btn = document.getElementById("btnLogin");
+    if (!btn) {
+      console.error("[dangnhap.js] Không tìm thấy #btnLogin");
+      return;
+    }
+    btn.addEventListener("click", onLoginClick);
+
+    // Cho phép Enter để đăng nhập
+    const passEl = document.getElementById("login_password");
+    passEl?.addEventListener("keypress", (ev) => {
+      if (ev.key === "Enter") onLoginClick(ev);
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", attach);
+  } else {
+    attach();
+  }
+})();
