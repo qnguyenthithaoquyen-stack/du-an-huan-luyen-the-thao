@@ -48,7 +48,7 @@
                 <button type="submit" class="bg-gradient-to-r from-teal-500 to-cyan-600 text-white font-bold py-3 px-8 rounded-full hover:opacity-90 transition-opacity">Phân Tích</button>
             </form>
 
-            <!-- Khu vực hiển thị kết quả mô phỏng -->
+            <!-- Kết quả -->
             <div id="analysisResult" class="hidden">
                 <div class="flex flex-col lg:flex-row gap-6">
                     <div class="lg:w-3/5">
@@ -75,7 +75,7 @@
                 </div>
             </div>
             
-            <!-- Nút và Bảng Lịch sử -->
+            <!-- Nút và lịch sử -->
             <div class="text-center my-6">
                 <button id="btnToggleHistory" class="bg-gray-200 text-gray-700 font-bold py-2 px-6 rounded-full hover:bg-gray-300 transition-colors">📜 Xem/Ẩn Lịch Sử Phân Tích</button>
             </div>
@@ -115,6 +115,7 @@
         </div>
     </main>
 
-    <script type="module" src="js/main.js"></script>
+    <!-- Gọi JS riêng cho trang này -->
+    <script type="module" src="js/phantich.js"></script>
 </body>
 </html>
