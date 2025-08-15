@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cảnh báo - Hỗ trợ huấn luyện</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-100">
+    <!-- Header chung -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="bg-teal-700 p-4 flex justify-between items-center text-white">
+            <div class="flex items-center gap-4">
+                <img src="https://placehold.co/64x64/ffffff/14b8a6?text=LOGO" alt="Logo" class="h-16 w-16">
+                <div>
+                    <h1 class="text-xl md:text-2xl font-extrabold uppercase">Hỗ trợ huấn luyện thể thao</h1>
+                    <p class="text-sm md:text-base font-semibold uppercase">Dự án khoa học kỹ thuật</p>
+                    <p class="text-xs md:text-sm uppercase">Ứng dụng theo dõi chỉ số vận động viên</p>
+                </div>
+            </div>
+        </div>
+        <nav class="bg-teal-600 flex justify-between items-center px-4">
+            <ul class="flex items-center text-white font-semibold">
+                <li><a href="index.html" class="block p-4 hover:bg-teal-700 transition-colors cursor-pointer">🏠</a></li>
+                <li><a href="gioithieu.html" class="hidden sm:block p-4 hover:bg-teal-700 transition-colors cursor-pointer">Giới thiệu</a></li>
+                <li id="nav-dashboard-link"><a href="#" class="hidden sm:block p-4 hover:bg-teal-700 transition-colors cursor-pointer">Bảng điều khiển</a></li>
+            </ul>
+            <div class="flex items-center gap-2">
+                 <a id="btnLoginNav" href="dangnhap.html" class="bg-white text-teal-600 font-bold px-4 py-2 rounded-md hover:bg-teal-50 transition-colors">Đăng nhập</a>
+                 <button id="btnLogoutNav" class="hidden bg-white text-teal-600 font-bold px-4 py-2 rounded-md hover:bg-teal-50 transition-colors">Đăng xuất</button>
+            </div>
+        </nav>
+    </header>
+
+    <main id="warningsPage" class="max-w-4xl mx-auto p-8 bg-white my-8 rounded-lg shadow-md">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Tổng hợp Cảnh báo</h2>
+        <div class="space-y-4">
+            <!-- Cảnh báo 1 -->
+            <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded-r-lg" role="alert">
+                <p class="font-bold">Nguy cơ quá tải!</p>
+                <p>Nhịp tim của VĐV Nguyễn Thị Oanh đã vượt ngưỡng 180bpm trong 5 phút liên tục.</p>
+            </div>
+            <!-- Cảnh báo 2 -->
+            <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 rounded-r-lg" role="alert">
+                <p class="font-bold">Cần chú ý!</p>
+                <p>VĐV Trần Văn Mạnh đã bỏ lỡ 2 buổi tập phục hồi trong tuần này.</p>
+            </div>
+        </div>
+         <button id="btnBackToDashboardFromWarnings" class="w-full mt-8 bg-gray-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-gray-600 transition-colors">
+            Quay lại Bảng điều khiển
+        </button>
+    </main>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

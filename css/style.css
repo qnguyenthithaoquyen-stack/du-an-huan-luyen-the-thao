@@ -1,0 +1,22 @@
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* CSS cho slider */
+.slider-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+/* CSS cho trang phân tích */
+.analysis-rating { font-size: 1.5em; font-weight: bold; text-align: center; margin-bottom: 15px; padding: 10px; border-radius: 5px;}
+.analysis-rating.hoan-hao { color: #155724; background-color: #d4edda; }
+.analysis-rating.tot { color: #004085; background-color: #cce5ff; }
+.analysis-rating.can-cai-thien { color: #856404; background-color: #fff3cd; }
+.analysis-rating.trung-binh { color: #721c24; background-color: #f8d7da; }
+#history-section { display: none; }

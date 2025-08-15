@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hỗ trợ huấn luyện thể thao</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-100">
+    <!-- Header chung -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="bg-teal-700 p-4 flex justify-between items-center text-white">
+            <div class="flex items-center gap-4">
+                <img src="https://placehold.co/64x64/ffffff/14b8a6?text=LOGO" alt="Logo" class="h-16 w-16">
+                <div>
+                    <h1 class="text-xl md:text-2xl font-extrabold uppercase">Hỗ trợ huấn luyện thể thao</h1>
+                    <p class="text-sm md:text-base font-semibold uppercase">Dự án khoa học kỹ thuật</p>
+                    <p class="text-xs md:text-sm uppercase">Ứng dụng theo dõi chỉ số vận động viên</p>
+                </div>
+            </div>
+        </div>
+        <nav class="bg-teal-600 flex justify-between items-center px-4">
+            <ul class="flex items-center text-white font-semibold">
+                <li><a href="index.html" class="block p-4 hover:bg-teal-700 transition-colors cursor-pointer">🏠</a></li>
+                <li><a href="gioithieu.html" class="hidden sm:block p-4 hover:bg-teal-700 transition-colors cursor-pointer">Giới thiệu</a></li>
+                <li id="nav-dashboard-link" class="hidden"><a href="#" class="hidden sm:block p-4 hover:bg-teal-700 transition-colors cursor-pointer">Bảng điều khiển</a></li>
+            </ul>
+            <div class="flex items-center gap-2">
+                 <a id="btnLoginNav" href="dangnhap.html" class="bg-white text-teal-600 font-bold px-4 py-2 rounded-md hover:bg-teal-50 transition-colors">Đăng nhập</a>
+                 <button id="btnLogoutNav" class="hidden bg-white text-teal-600 font-bold px-4 py-2 rounded-md hover:bg-teal-50 transition-colors">Đăng xuất</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Slider ảnh -->
+        <div id="slider" class="relative w-full overflow-hidden">
+            <div class="slider-container">
+                <div class="slide w-full h-80 md:h-[500px] bg-cover bg-center" style="background-image: url('https://bocongan.gov.vn/khen-thuong/PublishingImages/Khen%20thuong/2022/thang%205/doi-tuyen-bong-da-nu-futsal-nu-vo-dich-seagame-31.jpg');"></div>
+                <div class="slide w-full h-80 md:h-[500px] bg-cover bg-center" style="background-image: url('https://photo-cms-baophapluat.epicdn.me/w800/Uploaded/2024/pcgyj/2022_11_11/2022-11-10t141701z_1009804899_rc2viz9i32ot_rtrmadp_3_boxing-asia-6021.jpg');"></div>
+                <div class="slide w-full h-80 md:h-[500px] bg-cover bg-center" style="background-image: url('https://i.vnbusiness.vn/2023/05/10/vtv-1683729906.jpg');"></div>
+            </div>
+            <button id="prevBtn" class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full">&lt;</button>
+            <button id="nextBtn" class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full">&gt;</button>
+        </div>
+    </main>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

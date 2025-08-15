@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat - Hỗ trợ huấn luyện</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-100">
+    <!-- Header chung -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="bg-teal-700 p-4 flex justify-between items-center text-white">
+            <div class="flex items-center gap-4">
+                <img src="https://placehold.co/64x64/ffffff/14b8a6?text=LOGO" alt="Logo" class="h-16 w-16">
+                <div>
+                    <h1 class="text-xl md:text-2xl font-extrabold uppercase">Hỗ trợ huấn luyện thể thao</h1>
+                    <p class="text-sm md:text-base font-semibold uppercase">Dự án khoa học kỹ thuật</p>
+                    <p class="text-xs md:text-sm uppercase">Ứng dụng theo dõi chỉ số vận động viên</p>
+                </div>
+            </div>
+        </div>
+        <nav class="bg-teal-600 flex justify-between items-center px-4">
+            <ul class="flex items-center text-white font-semibold">
+                <li><a href="index.html" class="block p-4 hover:bg-teal-700 transition-colors cursor-pointer">🏠</a></li>
+                <li><a href="gioithieu.html" class="hidden sm:block p-4 hover:bg-teal-700 transition-colors cursor-pointer">Giới thiệu</a></li>
+                <li id="nav-dashboard-link"><a href="#" class="hidden sm:block p-4 hover:bg-teal-700 transition-colors cursor-pointer">Bảng điều khiển</a></li>
+            </ul>
+            <div class="flex items-center gap-2">
+                 <a id="btnLoginNav" href="dangnhap.html" class="bg-white text-teal-600 font-bold px-4 py-2 rounded-md hover:bg-teal-50 transition-colors">Đăng nhập</a>
+                 <button id="btnLogoutNav" class="hidden bg-white text-teal-600 font-bold px-4 py-2 rounded-md hover:bg-teal-50 transition-colors">Đăng xuất</button>
+            </div>
+        </nav>
+    </header>
+
+    <main id="chatPage" class="max-w-6xl mx-auto p-4 sm:p-8">
+        <div class="bg-white rounded-2xl shadow-lg h-[70vh] flex">
+            <!-- Cột danh bạ -->
+            <div class="w-1/3 border-r border-gray-200 flex flex-col">
+                <div class="p-4 border-b">
+                    <h2 class="text-xl font-bold text-gray-800">Tin nhắn</h2>
+                </div>
+                <div class="flex-1 overflow-y-auto">
+                    <!-- Liên hệ 1 (Đang chọn) -->
+                    <div class="p-4 flex items-center gap-4 cursor-pointer bg-teal-50 border-l-4 border-teal-500">
+                        <img src="https://placehold.co/48x48/14b8a6/ffffff?text=HLV" class="rounded-full" alt="avatar">
+                        <div>
+                            <p id="chat-contact-coach-name" class="font-bold">HLV</p>
+                            <p class="text-sm text-gray-500">Ok em, cố gắng nhé!</p>
+                        </div>
+                    </div>
+                     <!-- Liên hệ 2 -->
+                    <div class="p-4 flex items-center gap-4 cursor-pointer hover:bg-gray-100">
+                        <img src="https://placehold.co/48x48/7c3aed/ffffff?text=AI" class="rounded-full" alt="avatar">
+                        <div>
+                            <p class="font-bold">Trợ lý AI</p>
+                            <p class="text-sm text-gray-500">Bài tập của bạn đã được cập nhật.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Cửa sổ chat chính -->
+            <div class="w-2/3 flex flex-col">
+                <div class="p-4 border-b flex items-center gap-4">
+                    <img src="https://placehold.co/40x40/14b8a6/ffffff?text=HLV" class="rounded-full" alt="avatar">
+                    <h3 id="chat-header-coach-name" class="font-bold text-lg">HLV</h3>
+                </div>
+                <div id="chat-messages-container" class="flex-1 p-6 overflow-y-auto bg-gray-100">
+                    <!-- Tin nhắn sẽ được chèn vào đây -->
+                </div>
+                <div class="p-4 border-t bg-white">
+                    <div class="flex items-center gap-4">
+                        <input type="text" id="chat-input" placeholder="Nhập tin nhắn..." class="flex-1 p-3 bg-gray-100 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-teal-400">
+                        <button id="btnSendMessage" class="bg-teal-500 text-white p-3 rounded-full hover:bg-teal-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+         <button id="btnBackToDashboardFromChat" class="w-full max-w-6xl mx-auto mt-6 bg-gray-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-gray-600 transition-colors">
+            Quay lại Bảng điều khiển
+        </button>
+    </main>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

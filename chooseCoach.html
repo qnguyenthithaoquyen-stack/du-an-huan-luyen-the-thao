@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chọn Huấn Luyện Viên - Hỗ trợ huấn luyện</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-100">
+    <!-- Header chung -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="bg-teal-700 p-4 flex justify-between items-center text-white">
+            <div class="flex items-center gap-4">
+                <img src="https://placehold.co/64x64/ffffff/14b8a6?text=LOGO" alt="Logo" class="h-16 w-16">
+                <div>
+                    <h1 class="text-xl md:text-2xl font-extrabold uppercase">Hỗ trợ huấn luyện thể thao</h1>
+                    <p class="text-sm md:text-base font-semibold uppercase">Dự án khoa học kỹ thuật</p>
+                    <p class="text-xs md:text-sm uppercase">Ứng dụng theo dõi chỉ số vận động viên</p>
+                </div>
+            </div>
+        </div>
+        <nav class="bg-teal-600 flex justify-between items-center px-4">
+            <ul class="flex items-center text-white font-semibold">
+                <li><a href="index.html" class="block p-4 hover:bg-teal-700 transition-colors cursor-pointer">🏠</a></li>
+                <li><a href="gioithieu.html" class="hidden sm:block p-4 hover:bg-teal-700 transition-colors cursor-pointer">Giới thiệu</a></li>
+                <li id="nav-dashboard-link"><a href="#" class="hidden sm:block p-4 hover:bg-teal-700 transition-colors cursor-pointer">Bảng điều khiển</a></li>
+            </ul>
+            <div class="flex items-center gap-2">
+                 <a id="btnLoginNav" href="dangnhap.html" class="bg-white text-teal-600 font-bold px-4 py-2 rounded-md hover:bg-teal-50 transition-colors">Đăng nhập</a>
+                 <button id="btnLogoutNav" class="hidden bg-white text-teal-600 font-bold px-4 py-2 rounded-md hover:bg-teal-50 transition-colors">Đăng xuất</button>
+            </div>
+        </nav>
+    </header>
+
+    <main id="chooseCoachPage" class="max-w-4xl mx-auto p-8 bg-white my-8 rounded-lg shadow-md">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Chọn Huấn Luyện Viên</h2>
+        <div class="mb-6">
+            <label for="coach_city_filter" class="block text-sm font-medium text-gray-700 mb-1">Lọc theo tỉnh thành của bạn:</label>
+            <select id="coach_city_filter" class="w-full p-2 bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400">
+                <!-- Options will be populated by JS -->
+            </select>
+        </div>
+        <div id="coach-list" class="space-y-4">
+            <!-- Danh sách HLV sẽ được tải vào đây -->
+            <p class="text-center text-gray-500">Đang tải danh sách huấn luyện viên...</p>
+        </div>
+    </main>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

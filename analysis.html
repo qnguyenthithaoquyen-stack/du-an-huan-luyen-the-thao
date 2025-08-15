@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phân tích Động tác - Hỗ trợ huấn luyện</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-100">
+    <!-- Header chung -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="bg-teal-700 p-4 flex justify-between items-center text-white">
+            <div class="flex items-center gap-4">
+                <img src="https://placehold.co/64x64/ffffff/14b8a6?text=LOGO" alt="Logo" class="h-16 w-16">
+                <div>
+                    <h1 class="text-xl md:text-2xl font-extrabold uppercase">Hỗ trợ huấn luyện thể thao</h1>
+                    <p class="text-sm md:text-base font-semibold uppercase">Dự án khoa học kỹ thuật</p>
+                    <p class="text-xs md:text-sm uppercase">Ứng dụng theo dõi chỉ số vận động viên</p>
+                </div>
+            </div>
+        </div>
+        <nav class="bg-teal-600 flex justify-between items-center px-4">
+            <ul class="flex items-center text-white font-semibold">
+                <li><a href="index.html" class="block p-4 hover:bg-teal-700 transition-colors cursor-pointer">🏠</a></li>
+                <li><a href="gioithieu.html" class="hidden sm:block p-4 hover:bg-teal-700 transition-colors cursor-pointer">Giới thiệu</a></li>
+                <li id="nav-dashboard-link"><a href="#" class="hidden sm:block p-4 hover:bg-teal-700 transition-colors cursor-pointer">Bảng điều khiển</a></li>
+            </ul>
+            <div class="flex items-center gap-2">
+                 <a id="btnLoginNav" href="dangnhap.html" class="bg-white text-teal-600 font-bold px-4 py-2 rounded-md hover:bg-teal-50 transition-colors">Đăng nhập</a>
+                 <button id="btnLogoutNav" class="hidden bg-white text-teal-600 font-bold px-4 py-2 rounded-md hover:bg-teal-50 transition-colors">Đăng xuất</button>
+            </div>
+        </nav>
+    </header>
+
+    <main id="analysisPage" class="max-w-6xl mx-auto p-4 sm:p-8">
+        <div class="bg-white p-6 rounded-2xl shadow-lg">
+            <h1 class="text-2xl md:text-3xl font-bold text-center text-teal-800">🏃‍♂️ Phân Tích Tư Thế Nâng Cao 🏃‍♀️</h1>
+            <form id="analysisForm" class="flex flex-col items-center gap-4 my-6">
+                <select name="sport" required class="p-3 border-gray-300 border rounded-lg w-full max-w-xs focus:ring-2 focus:ring-teal-400">
+                    <option value="" disabled selected>-- Chọn Môn Thể Thao --</option>
+                    <option value="xuatphat">Xuất Phát</option>
+                    <option value="nhaycao">Nhảy Cao</option>
+                    <option value="nemta">Ném Tạ</option>
+                </select>
+                <input type="file" name="file" accept="image/*,video/*" required class="w-full max-w-xs file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-teal-50 file:text-teal-700 hover:file:bg-teal-100">
+                <button type="submit" class="bg-gradient-to-r from-teal-500 to-cyan-600 text-white font-bold py-3 px-8 rounded-full hover:opacity-90 transition-opacity">Phân Tích</button>
+            </form>
+
+            <!-- Khu vực hiển thị kết quả mô phỏng -->
+            <div id="analysisResult" class="hidden">
+                <div class="flex flex-col lg:flex-row gap-6">
+                    <div class="lg:w-3/5">
+                        <h2 class="text-xl font-bold text-gray-800 mb-2">🎬 Video Phân Tích</h2>
+                        <video controls autoplay loop class="w-full rounded-lg shadow-md">
+                            <source src="https://placehold.co/1280x720.mp4?text=Video+Mô+Phỏng" type="video/mp4">
+                            Trình duyệt của bạn không hỗ trợ thẻ video.
+                        </video>
+                    </div>
+                    <div class="lg:w-2/5 bg-gray-50 p-4 rounded-lg border">
+                        <h3 class="text-xl font-bold text-teal-700 mb-3 border-b-2 border-teal-200 pb-2">📊 Báo Cáo Chi Tiết</h3>
+                        <div class="analysis-rating can-cai-thien">Cần Cải Thiện (75% Đúng)</div>
+                        <div class="space-y-3">
+                            <div><strong>💬 Động viên:</strong><p class="text-gray-600">Bạn đã làm rất tốt! Chỉ cần chỉnh sửa một vài điểm nhỏ là sẽ hoàn hảo.</p></div>
+                            <div><strong>❌ Lỗi Tư Thế:</strong><ul class="list-disc list-inside text-gray-600"><li>Góc khuỷu tay hơi rộng.</li></ul></div>
+                            <div><strong>⚠️ Nguy Cơ Chấn Thương:</strong><ul class="list-disc list-inside text-gray-600"><li>Tiếp đất bằng gót chân có thể gây áp lực lên khớp gối.</li></ul></div>
+                            <div><strong>💡 Gợi Ý Cải Thiện:</strong><ul class="list-disc list-inside text-gray-600"><li>Giữ khuỷu tay gần thân người hơn.</li><li>Cố gắng tiếp đất bằng nửa trước bàn chân.</li></ul></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-8">
+                    <h2 class="text-xl font-bold text-gray-800 mb-4 text-center">📈 Biểu Đồ Tỉ Lệ Đúng (5 lần gần nhất)</h2>
+                    <canvas id="accuracyChart"></canvas>
+                </div>
+            </div>
+            
+            <!-- Nút và Bảng Lịch sử -->
+            <div class="text-center my-6">
+                <button id="btnToggleHistory" class="bg-gray-200 text-gray-700 font-bold py-2 px-6 rounded-full hover:bg-gray-300 transition-colors">📜 Xem/Ẩn Lịch Sử Phân Tích</button>
+            </div>
+            <div id="history-section" class="hidden">
+                <h2 class="text-2xl font-bold text-gray-800 text-center mb-4">Lịch Sử Phân Tích</h2>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white shadow-md rounded-lg">
+                        <thead class="bg-teal-600 text-white">
+                            <tr>
+                                <th class="py-3 px-4 text-left">Thời Gian</th>
+                                <th class="py-3 px-4 text-left">Môn Thể Thao</th>
+                                <th class="py-3 px-4 text-left">Xếp Loại</th>
+                                <th class="py-3 px-4 text-left">Tỉ Lệ Đúng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="py-3 px-4">12/08/2025 10:30</td>
+                                <td class="py-3 px-4">Xuất Phát</td>
+                                <td class="py-3 px-4">Cần Cải Thiện</td>
+                                <td class="py-3 px-4">75%</td>
+                            </tr>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="py-3 px-4">11/08/2025 15:00</td>
+                                <td class="py-3 px-4">Xuất Phát</td>
+                                <td class="py-3 px-4">Khá</td>
+                                <td class="py-3 px-4">68%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <button id="btnBackToDashboard" class="w-full mt-6 bg-gray-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-gray-600 transition-colors">
+                Quay lại Bảng điều khiển
+            </button>
+        </div>
+    </main>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
